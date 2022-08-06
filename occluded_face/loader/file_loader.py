@@ -10,7 +10,7 @@ from occluded_face.dataclass import File
 
 class FileLoader:
 
-    def __init__(self, image_dir: str):
+    def __init__(self, image_dir: str, imshow: function | None = None):
         self._image_dir = image_dir
 
         image_files = []
@@ -22,18 +22,18 @@ class FileLoader:
         self._image_files = image_files
         self._num_images = len(image_files)
 
+        self.imshow = imshow if imshow else cv2.imshow
+
     def _load(self) -> File:
-        file_name = self._image_files[self._index]
+        index = self._index
+        file_name = self._image_files[index]
         path = os.path.join(self._image_dir, file_name)
         
         file = File(file_name, cv2.imread(path), *self._get_labels(file_name))
         
-        self._index += 1
+        self._index = index + 1
         
         return file
-
-    def _load_image(self, path: str) -> np.ndarray:
-        return cv2.imread(path)
 
     def _get_labels(self, file_name: str) -> tuple[bool, bool, bool]:
         """
@@ -47,6 +47,9 @@ class FileLoader:
         is_bottom_occluded = labels[2][0] == '1'
 
         return is_occluded, is_top_occluded, is_bottom_occluded
+
+    def aggregate(self) -> list[dict]:
+        return [file.info for file in self]
 
     def __iter__(self) -> "FileLoader":
         self._index = 0
