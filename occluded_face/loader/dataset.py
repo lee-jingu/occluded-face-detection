@@ -12,9 +12,9 @@ class MultiLabelDataset(Dataset):
         self.image_ids = image_ids
         self.transform = transform
 
-        self.labels = self._get_labels(image_ids)
         self.class_names = ['not_occluded', 'top_occluded', 'bottom_occluded']
         self.class_count = [0, 0, 0]
+        self.labels = self._get_labels(image_ids)
 
     def _get_labels(self, image_ids: os.PathLike) -> dict:
         labels = {}
@@ -63,9 +63,9 @@ class MultiClassDataset(Dataset):
         self.image_ids = image_ids
         self.transform = transform
 
-        self.labels = self._get_labels(image_ids)
         self.class_names = ['not_occluded', 'top_only_occluded', 'bottom_only_occluded', 'both_occluded']
         self.class_count = [0, 0, 0, 0]
+        self.labels = self._get_labels(image_ids)
     
     def _get_labels(self, image_ids: os.PathLike) -> dict:
         labels = {}
