@@ -1,7 +1,7 @@
 # occluded-face-detection
 얼굴에 가려진 부분이 있는 지 찾아내는 모델
 
-<img src="https://github.com/lee-jingu/asset/output.png" height="480">
+<img src="https://github.com/lee-jingu/occluded-face-detection/blob/main/asset/output.gif" height="480">
 
 [Notion](https://aiappbox.notion.site/Occluded-Face-Detection-bac15f3cfa024ef8bd0cab59726c487f) 에 가면 더욱 자세한 실험 설계와 EDA를 볼 수 있다.
 
