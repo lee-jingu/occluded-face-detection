@@ -65,7 +65,7 @@ def main():
             cv2.putText(image_for_view, 'NON-OCCLUDE', (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 5)
             if args.verbose:
                 print('NON-OCCLUDE')
-        elif output == 1 or output == 2:
+        else:
             cv2.putText(image_for_view, 'OCCLUDE', (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 5)
             if args.verbose:
                 print('OCCLUDE')
