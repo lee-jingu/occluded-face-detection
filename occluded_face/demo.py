@@ -33,7 +33,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument('--checkpoint', type=str, default='14.pth', help='path to checkpoint')
     parser.add_argument('--task', type=str, default='multi-label', help='multi-label or multi-class')
     parser.add_argument('--verbose', action='store_true', help='verbose')
-    parser.add_argument('--interval', type=int, default=1000, help='interval [ms]')
+    parser.add_argument('--interval', type=int, default=800, help='interval [ms]')
 
     return parser.parse_args()
 
@@ -62,7 +62,7 @@ def main():
         image_for_view = cv2.imread(path)
         image_for_view = cv2.resize(image_for_view, (600, 600))
         if output == 0:
-            cv2.putText(image_for_view, 'NON-OCCLUDE', (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 5)
+            cv2.putText(image_for_view, 'NON-OCCLUDE', (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 5)
             if args.verbose:
                 print('NON-OCCLUDE')
         else:
