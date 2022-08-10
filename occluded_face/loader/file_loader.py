@@ -3,9 +3,8 @@ from __future__ import annotations
 import os
 
 import cv2
-import numpy as np
 
-from occluded_face.dataclass import File
+from dataclass import File
 
 
 class FileLoader:
@@ -15,7 +14,8 @@ class FileLoader:
 
         image_files = []
         for file in os.listdir(self._image_dir):
-            if file.endswith(".jpg"):
+            ext = os.path.splitext(file)[1].lower()
+            if ext in ['.jpg', '.png', '.jpeg']:
                 image_files.append(file)
 
         self._index = 0
