@@ -65,6 +65,7 @@
 | mislabeled | 2 |
 
 <img src="asset/class_imbalence.png" height='400'>
+
 - not_occluded: Occlude되지 않은 Samples
 - top_occluded: 윗부분이 Occlude된 Samples
 - bottom_occluded: 아랫부분이 Occlude된 Samples
