@@ -130,5 +130,12 @@ dmypy.json
 
 new_train_3/
 *.jpg
+*.png
+*.jpeg
 
 *.zip
+*.pth
+.vscode/
+checkpoints*/
+dataset/
+outputs/
